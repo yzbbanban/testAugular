@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+</head>
+<body ng-app>
+<div ng-controller="cartControllar" class="container">
+    <table class="table" ng-show="cart.length">
+        <thead>
+        <tr>
+            <th>产品编号</th>
+            <th>产品名字</th>
+            <th>购买数量</th>
+            <th>产品单价</th>
+            <th>产品总价</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in cart">
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.quantity}}</td>
+            <td>{{item.price}}</td>
+            <td>{{item.price*item.quantity}}</td>
+            <td>
+                <button ng-click="remove(item.id)" class="btn btn-danger">移除</button>
+            </td>
+        </tr>
+
+        </tbody>
+        <tr>
+            <td>
+                总购买价:
+
+            </td>
+            <td>{{totalPrice()}}</td>
+            <td>总购买数量:</td>
+            <td>{{totalCount()}}</td>
+            <td colspan="2">
+                <button ng-click="cart={}" class="btn btn-danger">清空购物车</button>
+            </td>
+        </tr>
+        <p ng-show="!cart.length">购物车为空</p>
+    </table>
+
+</div>
+
+<script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="../vendor/angular.js"></script>
+</body>
+</html>
