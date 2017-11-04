@@ -22,7 +22,11 @@
         <tr ng-repeat="item in cart">
             <td>{{item.id}}</td>
             <td>{{item.name}}</td>
-            <td>{{item.quantity}}</td>
+            <td>
+                <button ng-click="reduce(item.id)" class="btn btn-primary">-</button>
+                <input ng-model="item.quantity" value="{{item.quantity}}">
+                <button ng-click="add(item.id)" class="btn btn-primary">+</button>
+            </td>
             <td>{{item.price}}</td>
             <td>{{item.price*item.quantity}}</td>
             <td>
