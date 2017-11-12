@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+</head>
+<body ng-app="product">
+<div ng-controller="productController" class="container">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+                <form class="navbar-form navbar-left">
+                    <div class="form-group">
+                        <input type="text" class="form-control" ng-model="search.id" placeholder="Search">
+                    </div>
+                </form>
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>产品编号</th>
+            <th>产品名字</th>
+            <th>产品单价</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="product in productData | filter :{id:search}">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price| currency :'(RMB)'}}</td>
+        </tr>
+    </table>
+</div>
+<script type="text/javascript" src="../vendor/angular.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+</body>
+</html>
