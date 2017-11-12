@@ -23,13 +23,13 @@
     <table class="table">
         <thead>
         <tr>
-            <th>产品编号</th>
-            <th>产品名字</th>
-            <th>产品单价</th>
+            <th ng-click="changeOrder('id')" ng-class="{dropup:order === ''}">产品编号<span class="caret"></span></th>
+            <th ng-click="changeOrder('namr')" ng-class="{dropup:order === ''}">产品名字<span class="caret"></span></th>
+            <th ng-click="changeOrder('price')" ng-class="{dropup:order === ''}">产品单价<span class="caret"></span></th>
         </tr>
         </thead>
         <tbody>
-        <tr ng-repeat="product in productData | filter :{id:search}">
+        <tr ng-repeat="product in productData | filter :search| orderBy : order+orderType">
             <td>{{product.id}}</td>
             <td>{{product.name}}</td>
             <td>{{product.price| currency :'(RMB)'}}</td>
