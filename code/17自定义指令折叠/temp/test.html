@@ -1,0 +1,14 @@
+<div class="panel panel-default">
+    <div class="panel-heading" role="tab">
+        <h4 class="panel-title">
+            <a role="button" data-toggle="collapse" ng-click="changeOpen()" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                {{heading}}
+            </a>
+        </h4>
+    </div>
+    <div class="panel-collapse collapse " ng-class="{in:isOpen}" role="tabpanel" aria-labelledby="headingOne">
+        <div class="panel-body" ng-transclude>
+
+        </div>
+    </div>
+</div>
