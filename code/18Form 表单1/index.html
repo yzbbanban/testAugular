@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="../vendor/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+<div ng-app="myApp">
+    <form action="" name="myForm" class="container" ng-controller="firstController">
+        <div class="form-group">
+            <label>姓名</label>
+            <input type="text" name="username" ng-model="data.username" ng-pattern="/^[a-zA-Z]{1}/"
+                   ng-required="true"
+                   ng-minlength="5" ng-maxlength="10"
+                   class="form-control" placeholder="username">
+            <div ng-class="{'has-error': myForm.username.$error.maxlength}">
+                不能大于10位
+            </div>
+            <div ng-class="{'has-error': myForm.username.$error.minlength}">
+                不能小于5位
+            </div>
+            {{myForm.username.$error}}
+        </div>
+    </form>
+</div>
+
+<script type="text/javascript" src="../vendor/angular.js"></script>
+<script type="text/javascript" src="js/index.js"></script>
+
+</body>
+</html>
